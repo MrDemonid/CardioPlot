@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Вывод в консоль -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--            <PatternLayout pattern="[%d{HH:mm:ss}] %-5level %c{1} - %msg%n"/>-->
+            <PatternLayout
+                    pattern="%highlight{[%d{HH:mm:ss}] %-5level %c{1} - %msg%n}{FATAL=bright red, ERROR=red, WARN=yellow, INFO=green, DEBUG=cyan, TRACE=bright black}"
+                    disableAnsi="false"
+                    noConsoleNoAnsi="false"
+            />
+
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- Логгер приложения -->
+        <Logger name="mr.demonid" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Корневой логгер -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
